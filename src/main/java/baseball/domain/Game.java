@@ -33,7 +33,7 @@ public class Game {
         }
 
         inputStr = ScannerUtil.gameClear();
-        if(inputStr == "1"){
+        if("1".equals(inputStr)){
             return true;
         }
         return false;

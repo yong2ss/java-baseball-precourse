@@ -15,7 +15,7 @@ public final class RandomNumberUtil {
         }
 
         ArrayList<Integer> numberList = new ArrayList<>(numberSet);
-        Collections.shuffle(numberList);
+        //Collections.shuffle(numberList);
         return numberList;
     }
 }
