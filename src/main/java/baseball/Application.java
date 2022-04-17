@@ -1,14 +1,11 @@
 package baseball;
 
-import baseball.domain.Game;
+import baseball.service.BaseBallService;
 
 public class Application {
-    public static void main(String[] args) {
-        boolean isPlay = true;
+    static final BaseBallService baseBallService = new BaseBallService();
 
-        while(isPlay) {
-            Game game = new Game();
-            isPlay = game.start();
-        }
+    public static void main(String[] args) {
+        baseBallService.gameStart();
     }
 }
