@@ -27,6 +27,7 @@ public class Ball {
         return ballStatus;
     }
 
+
     private boolean validation (int number, int position) {
         if(number < 1 || number > 9)
             return false;
@@ -38,19 +39,16 @@ public class Ball {
     }
 
     public void calculation(Balls balls) {
-        //스트라이크인가?
         if(isStrike(balls)) {
             this.ballStatus = BallStatus.STRIKE;
             return;
         }
 
-        //볼인가?
         if(isBall(balls)) {
             this.ballStatus = BallStatus.BALL;
             return;
         }
 
-        //낫띵
         this.ballStatus = BallStatus.NOTHING;
     }
 
