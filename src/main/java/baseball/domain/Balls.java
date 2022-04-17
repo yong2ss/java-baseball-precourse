@@ -22,10 +22,14 @@ public class Balls {
         return ballList;
     }
 
-    public PlayResult play(Balls balls) {
+    public PlayResult play(Balls gameBalls) {
         PlayResult playResult = new PlayResult();
 
+        for (Ball ball : balls) {
+            ball.calculation(gameBalls);
+        }
 
+        playResult.calculation(this);
 
         return playResult;
     }

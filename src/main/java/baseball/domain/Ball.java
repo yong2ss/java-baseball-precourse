@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Ball {
     private int number;
     private int position;
-    private BallStatus ballStatus;
+    private BallStatus ballStatus = BallStatus.NOTHING;
 
     public Ball(int number, int position) {
         if(!validation(number, position)) {
@@ -52,10 +52,9 @@ public class Ball {
 
         //낫띵
         this.ballStatus = BallStatus.NOTHING;
-
     }
 
-    private boolean isBall (Balls balls) {
+    public boolean isBall (Balls balls) {
         for (Ball ball : balls.getBalls()) {
             if(this.isBall(ball))
                 return true;
@@ -63,19 +62,16 @@ public class Ball {
         return false;
     }
 
-    private boolean isBall(Ball ball) {
+    public boolean isBall(Ball ball) {
         if(this.number == ball.getNumber()
             && this.number != ball.getPosition())
             return true;
         return false;
     }
 
-
-    private boolean isStrike (Balls balls) {
-        for (Ball ball : balls.getBalls()) {
-            if(this.equals(ball))
-                return true;
-        }
+    public boolean isStrike (Balls balls) {
+        if(this.equals(balls.getBalls().get(position)))
+            return true;
         return false;
     }
 

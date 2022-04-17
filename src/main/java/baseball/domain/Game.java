@@ -1,38 +1,41 @@
 package baseball.domain;
 
-import baseball.utils.RandomNumber;
-import camp.nextstep.edu.missionutils.*;
+import baseball.utils.IntegerUtil;
+import baseball.utils.RandomNumberUtil;
+import baseball.utils.ScannerUtil;
 
 public class Game {
     private final Balls answer;
     private boolean isSuccess = false;
 
     public Game() {
-        Balls balls = new Balls(RandomNumber.getRandomNumberList());
+        Balls balls = new Balls(RandomNumberUtil.getRandomNumberList());
         this.answer = balls;
     }
 
-    public boolean play(Balls userBalls){
+    public void play(Balls userBalls){
         PlayResult playResult = userBalls.play(answer);
+
+        System.out.println(playResult.toString());
 
         if(playResult.getStrikeCount() == 3) {
             isSuccess = true;
-            return true;
         }
-
-        return false;
     }
 
     public boolean start() {
-        //TODO 숫자입력
-        Console.readLine();
+        String inputStr = "";
 
-        //TODO while play
-        while(isSuccess) {
-
+        while(!isSuccess) {
+            inputStr = ScannerUtil.inputNumber();
+            Balls userBalls = new Balls(IntegerUtil.integerToList(inputStr));
+            play(userBalls);
         }
 
-        //TODO 계속 하시겠습니까? -> return t/f
+        inputStr = ScannerUtil.gameClear();
+        if(inputStr == "1"){
+            return true;
+        }
         return false;
     }
 }
