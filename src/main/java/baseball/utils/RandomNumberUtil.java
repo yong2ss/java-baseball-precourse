@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public final class RandomNumber {
+public final class RandomNumberUtil {
     public static List<Integer> getRandomNumberList() {
         HashSet<Integer> numberSet = new HashSet<>();
         while(numberSet.size() < 3) {
