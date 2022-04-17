@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 
 public final class RandomNumberUtil {
-    private static int MIN_NUMBER = 9;
+    private static int MIN_NUMBER = 1;
     private static int MAX_NUMBER = 9;
     private static int MAX_COUNT = 3;
 
