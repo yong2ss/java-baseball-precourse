@@ -1,8 +1,8 @@
 package baseball.domain;
 
 public class PlayResult {
-    int strikeCount;
-    int ballCount;
+    private int strikeCount;
+    private int ballCount;
 
     public int getStrikeCount() {
         return strikeCount;
@@ -14,12 +14,15 @@ public class PlayResult {
 
     public void calculation(Balls balls) {
         for(Ball ball : balls.getBalls()) {
-            if(BallStatus.STRIKE.equals(ball.getBallStatus()))
-                strikeCount++;
-
-            if(BallStatus.BALL.equals(ball.getBallStatus()))
-                ballCount++;
+            scoreCount(ball);
         }
+    }
+
+    private void scoreCount(Ball ball) {
+        if(BallStatus.STRIKE.equals(ball.getBallStatus()))
+            strikeCount++;
+        if(BallStatus.BALL.equals(ball.getBallStatus()))
+            ballCount++;
     }
 
     @Override
@@ -39,6 +42,6 @@ public class PlayResult {
             sb.append(strikeCount + "스트라이크");
         }
 
-        return sb.toString();
+        return sb.toString().trim();
     }
 }

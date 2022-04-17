@@ -56,16 +56,10 @@ public class Ball {
 
     public boolean isBall (Balls balls) {
         for (Ball ball : balls.getBalls()) {
-            if(this.isBall(ball))
+            if(this.number == ball.getNumber()
+                && this.number != ball.getPosition())
                 return true;
         }
-        return false;
-    }
-
-    public boolean isBall(Ball ball) {
-        if(this.number == ball.getNumber()
-            && this.number != ball.getPosition())
-            return true;
         return false;
     }
 
